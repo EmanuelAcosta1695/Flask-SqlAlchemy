@@ -1,0 +1,113 @@
+body {
+    font-family: 'Rufina', sans-serif;
+    background-color: #252323;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    margin-top: 25px;
+    font-size: 50px;
+}
+
+
+.homepage {
+    text-align: center;
+}
+
+.user {
+    margin-left: 25px;
+    color: white;
+}
+
+a {
+    color: rgb(63, 56, 56);
+    text-decoration: none;
+
+    margin-bottom: 5px;
+    margin-top: 10px;
+
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 100px;
+    padding: 5px 15px;
+    background-color: rgb(224, 172, 0);
+    border: 0px solid rgb(224, 172, 0);
+}
+
+.form {
+    text-align: center;
+}
+
+label {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+input {
+    color: rgb(63, 56, 56);
+    text-decoration: none;
+
+    margin-bottom: 5px;
+    margin-top: 10px;
+
+    text-align: center; 
+
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 100px;
+    padding: 5px 15px;
+    background-color: rgb(224, 172, 0);
+    border: 0px solid rgb(224, 172, 0);
+}
+
+.listToDo {
+    text-align: center;
+    width: 80%;
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+
+th {
+    color: rgb(224, 172, 0);
+}
+
+
+
+.description {
+    width: 35%;
+    background-color: black;
+    color: rgb(224, 172, 0);
+    border-radius: 100px;
+    padding: 15px 30px;
+    margin-bottom: 40px;
+}
+
+
+.new {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.newtodo{
+    padding: 15px 45px;
+}
+
+.edit {
+    text-align: center; 
+    color: white; 
+    margin-bottom: 80px;
+    margin-top: 25px;
+    font-size: 50px;
+}
+
+.flash {
+    text-align: center;
+    color: red;
+    margin-top: 20px;
+}

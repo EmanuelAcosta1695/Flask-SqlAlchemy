@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>ToDo</title>
+    </head>
+<body>
+    <section>
+        <a href="{{ url_for('user.register') }}">Sign Up</a>
+
+        <p class="title">Log<b>in</b></p>
+
+    
+        <form method="POST" class="form"> 
+            <label for="username">Username</label>
+            <br>
+            <input name="username" required />
+            
+            <br>
+            <label for="password">Password</label>
+            <br>
+            <input type="password" name="password" required />
+            <br>
+
+            {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+            {% endfor %}
+            
+            <br>
+            <input type="submit" value="Log In" />
+        </form>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>ToDo</title>
+</head>
+<body>
+
+    <p class="title">To Do <b>List</b></p>
+
+    <nav class="homepage">
+        {% if g.user %}
+            <h3 class="user">{{ g.user['username'] }}</h3>
+            <ul><a href="{{ url_for('user.logout') }}">Log Out</a></ul>
+
+            <ul><a href="{{ url_for('todo.listToDo') }}">My To Do!</a></ul>
+        {% else %}
+            <a href="{{ url_for('user.login') }}">Login</a>
+            <br>
+            <a href="{{ url_for('user.register') }}">Sign Up</a>
+        {% endif %}
+    </nav>
+    
+    <section>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+    </section>
+
+</body>
+</html>

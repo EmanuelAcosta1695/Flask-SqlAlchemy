@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>ToDo</title>
+    </head>
+</head>
+<body>
+    {% if g.user %}
+        <li><span class="user">{{ g.user['username'] }}</span></li>
+        <li><a href="{{ url_for('user.logout') }}">Log Out</a></li>
+    {% endif %}
+
+    <p class="title">New<b>ToDo</b></p>
+
+    <form method="post" class="form">
+        <label for="description">Descripcion:</label>
+        <br>
+        <input name="description" id="description" class="description"/>
+
+        <br>
+        <label>Term of time (Optional):</label>
+        <br>
+        <input type="date" id="start" name="trip-start" value="" min="{{date}}" max="">
+        <br>
+
+        <br>
+        <input type="submit" value="Save">
+        <br>
+        <input type="submit" href="{{ url_for('todo.listToDo') }}" value="Cancel" />
+
+    </form>
+    
+</body>
+</html>
+

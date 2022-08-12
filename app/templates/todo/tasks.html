@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>ToDo</title>
+    </head>
+<body>
+    {% if g.user %}
+        <li><span class="user">{{ g.user['username'] }}</span></li>
+        <li><a href="{{ url_for('user.logout') }}">Log Out</a></li>
+    {% endif %}
+
+    <p class="title">To Do <b>List</b></p>
+
+    <nav class="new">
+        {% if g.user %}
+        <a class="newtodo" href="{{ url_for('todo.createToDo') }}">New ToDo</a>
+        {% endif %}
+    </nav>
+
+    <table class="listToDo">
+        <thead>
+            <tr>
+                <th>Do</th>
+                <th>Created at</th>
+                <th>Term of time (opt)</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+            <tr>
+                <td class="description">
+                    {% if todo['completed'] == 1 %}
+                    <strike>{{ todo['description'] }}</strike>
+                    {% else %}
+                    {{ todo['description'] }}
+                    {% endif %}
+                </td>
+                <td>{{ todo['created_at'] }}</td>
+                <td><input type="date" id="start" name="trip-start" value="" min="{{date}}" max=""></td>
+                <td> <a href="{{ url_for('todo.updateToDo', id=todo['taskId']) }}">Edit</a></td>
+                <td>
+                    <form action="{{ url_for('todo.deleteToDo', id=todo['taskId']) }}" method="post">
+                        <input class="danger" type="submit" value="Delete" onclick="return confirm('Do you want to delete it??')" />
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
